@@ -132,3 +132,45 @@ html:not([lang="fr"]) .site-footer [lang="fr"] { display: none; }
 @media (min-width: 700px) {
   #kicker-wide { display: block !important; }
 }
+
+/* Shared Mkweli family strip: sister sites, support, counter, Pulitzer line */
+.mkweli-family {
+  width: min(100% - 2rem, 1120px);
+  margin: 0.95rem auto 0.15rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: inherit;
+}
+.mkweli-family-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.7rem;
+}
+.mkweli-family a { color: inherit; text-underline-offset: 2px; }
+.mkweli-family a:hover { opacity: 0.72; }
+.mkweli-family [aria-current="page"] { font-weight: 650; text-decoration: none; }
+.mkweli-family-contact { margin: 0.4rem 0 0; }
+.mkweli-family .visit-counter {
+  margin: 0.28rem 0 0;
+  font-size: 0.74rem;
+  opacity: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+.mkweli-family .visit-counter[hidden] { display: none; }
+.mkweli-quote {
+  margin: 0.7rem 0 0;
+  padding: 0;
+  border: 0;
+  max-width: 46rem;
+  font-style: italic;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+.mkweli-quote p { margin: 0; font-style: italic; }
+.mkweli-quote cite { display: block; margin-top: 0.22rem; font-style: italic; }
+.mkweli-family-center { text-align: center; }
+.mkweli-family-center .mkweli-family-nav { justify-content: center; }
+.mkweli-family-center .mkweli-quote { margin-inline: auto; }
+.mkweli-family-bleed { width: auto; margin-left: 0; margin-right: 0; }
