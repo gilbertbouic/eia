@@ -50,6 +50,15 @@ a.rust { color: var(--rust); }
 .filters button, .chip { min-height: 2.75rem; border: 1px solid var(--rule); background: var(--card); padding: 0 0.75rem; font-size: 0.9rem; }
 .filters button.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 input[type="search"] { width: 100%; min-height: 3rem; border: 1px solid var(--ink); background: var(--card); padding: 0 1rem; font: inherit; font-size: 1rem; }
+.comment { margin-top: 1.2rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+.comment h3 { font-family: var(--display); font-size: 1.5rem; font-weight: 500; margin: 0; }
+.comment label { display: block; margin-top: 0.8rem; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.comment input, .comment textarea { width: 100%; margin-top: 0.25rem; border: 1px solid var(--ink); background: var(--paper); padding: 0.6rem 0.75rem; font: inherit; font-size: 1rem; }
+.comment textarea { min-height: 8rem; resize: vertical; }
+.comment .rowbtns { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.75rem; }
+.comment .rowbtns button { min-height: 2.75rem; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); padding: 0 0.9rem; }
+.comment .rowbtns button[data-print] { background: var(--card); color: var(--ink); }
+.comment .rowbtns button:disabled { opacity: 0.4; }
 .chips { display: flex; flex-wrap: wrap; align-items: center; gap: 0.15rem; margin-top: 0.4rem; }
 .chips button { min-height: 2.75rem; padding: 0 0.45rem; background: none; border: 0; font-size: 0.9rem; }
 .chips button.on { color: var(--rust); text-decoration: underline; }

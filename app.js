@@ -43,8 +43,15 @@ const copy = {
     empty: "No notice matches that search.",
     mapTitle: "Places named in the notices",
     mapNote: "Each pin marks the locality named in the notice. © OpenStreetMap © CARTO",
-    how: "Sending a comment",
-    howBody: "While a report is open, comments go in writing to the EIA Desk, Department of Environment, Ken Lee Tower, corner of Barracks and St Georges Streets, Port Louis, or through the EDB business portal. Mark the envelope “EIA comments” or “PER comments”. The deadline is the date printed on the notice.",
+    comment: "Comment",
+    commentName: "Your name",
+    commentBody: "Your comment",
+    commentCopy: "Copy comment",
+    commentPrint: "Print",
+    commentCopied: "Copied",
+    deadline: "Deadline",
+    commentTo: "EIA Desk, Department of Environment, Ken Lee Tower, corner of Barracks and St Georges Streets, Port Louis.",
+    portal: "EDB portal",
     sisters: "Also on Mkweli", updated: "Compiled", window: "Comment window closed", exempt: "Exempt undertaking",
     register: "The register", showing: "Showing", newer: "Newer", older: "Older", island: "Whole island",
     across: "Same project, different decision",
@@ -64,8 +71,15 @@ const copy = {
     empty: "Aucun avis ne correspond à cette recherche.",
     mapTitle: "Lieux nommés dans les avis",
     mapNote: "Chaque épingle marque la localité nommée dans l’avis. © OpenStreetMap © CARTO",
-    how: "Envoyer un commentaire",
-    howBody: "Tant que le rapport est ouvert, les commentaires s’adressent par écrit à l’EIA Desk, Department of Environment, Ken Lee Tower, angle Barracks et St Georges, Port-Louis, ou via le portail EDB. L’enveloppe porte « EIA comments » ou « PER comments ». Le délai est la date imprimée sur l’avis.",
+    comment: "Commentaire",
+    commentName: "Votre nom",
+    commentBody: "Votre commentaire",
+    commentCopy: "Copier le commentaire",
+    commentPrint: "Imprimer",
+    commentCopied: "Copié",
+    deadline: "Délai",
+    commentTo: "EIA Desk, Department of Environment, Ken Lee Tower, angle Barracks et St Georges, Port-Louis.",
+    portal: "Portail EDB",
     sisters: "Ailleurs sur Mkweli", updated: "Compilé", window: "Délai de commentaires clos", exempt: "Entreprise exemptée",
     register: "Le registre", showing: "Affichés", newer: "Plus récent", older: "Plus ancien", island: "Île entière",
     across: "Même projet, décision différente",
@@ -85,6 +99,26 @@ const state = {
 
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]));
 const lonToX = (lon, z) => ((lon + 180) / 360) * 2 ** z;
+let drafts = {};
+try { drafts = JSON.parse(localStorage.getItem("eia-comments") || "{}"); } catch { drafts = {}; }
+let copiedId = "";
+function saveDrafts() { localStorage.setItem("eia-comments", JSON.stringify(drafts)); }
+function letter(item, draft) {
+  const mark = item.kind === "PER" ? "PER comments" : item.kind === "EIA" ? "EIA comments" : "Comments";
+  const site = item.district !== "Not published" ? `${item.site}, ${item.district}` : item.site;
+  const fr = state.lang === "fr";
+  const lines = [
+    mark, "",
+    "EIA Desk", "Department of Environment", "Ken Lee Tower", "Corner of Barracks and St Georges Streets", "Port Louis", "",
+    `${fr ? "Projet" : "Project"}: ${item.title}`,
+    `${fr ? "Pétitionnaire" : "Proponent"}: ${item.proponent}`,
+    `Site: ${site}`,
+    `${fr ? "Avis" : "Notice"}: ${item.date}`,
+  ];
+  if (item.commentsDue) lines.push(`${fr ? "Délai" : "Deadline"}: ${item.commentsDue}`);
+  lines.push("", `${fr ? "De" : "From"}: ${draft.name.trim()}`, "", draft.body.trim());
+  return lines.join("\n");
+}
 const latToY = (lat, z) => {
   const r = (lat * Math.PI) / 180;
   return ((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2) * 2 ** z;
@@ -157,6 +191,8 @@ function draw() {
     state.frame = "fit";
   }
   const active = records.find((r) => r.id === state.selected) || null;
+  const draft = active ? drafts[active.id] || { name: "", body: "" } : { name: "", body: "" };
+  const ready = Boolean(draft.name.trim() && draft.body.trim());
   const place = list.findIndex((r) => r.id === state.selected);
   const dates = records.map((r) => r.date).sort();
   const districts = [...new Set(records.map((r) => r.district).filter((d) => d !== "Not published"))].sort();
@@ -242,6 +278,20 @@ function draw() {
           ${active.note ? `<p class="muted">${esc(active.note)}</p>` : ""}
           ${active.history?.length ? `<div class="trail"><p class="muted" style="font-size:.75rem;text-transform:uppercase">${esc(t.trail)}</p>${active.history.map((step) => `<p><a class="rust" href="${esc(step.url)}">${esc(step.label)}</a> <span class="muted">· ${esc(fmt(step.date))}</span></p>`).join("")}</div>` : ""}
           <div><a class="src" href="${esc(active.sourceUrl)}">${esc(t.source)}</a> <span class="muted" style="font-size:.75rem">${esc(active.sourceLabel)}</span></div>
+          <form class="comment" onsubmit="return false">
+            <h3>${esc(t.comment)}</h3>
+            ${active.commentsDue ? `<p>${esc(t.deadline)} ${esc(fmt(active.commentsDue))}</p>` : ""}
+            <label for="cname">${esc(t.commentName)}</label>
+            <input id="cname" value="${esc(draft.name)}" autocomplete="name">
+            <label for="cbody">${esc(t.commentBody)}</label>
+            <textarea id="cbody">${esc(draft.body)}</textarea>
+            <p class="fine">${esc(t.commentTo)}</p>
+            <div class="rowbtns">
+              <button type="button" data-copy="1" ${ready ? "" : "disabled"}>${esc(copiedId === active.id ? t.commentCopied : t.commentCopy)}</button>
+              <button type="button" data-print="1" ${ready ? "" : "disabled"}>${esc(t.commentPrint)}</button>
+              <a class="rust" href="http://business.edbmauritius.org">${esc(t.portal)}</a>
+            </div>
+          </form>
           <div class="pager"><button data-older="1" ${place <= 0 ? "disabled" : ""}>${esc(t.newer)}</button><button data-newer="1" ${place < 0 || place >= list.length - 1 ? "disabled" : ""}>${esc(t.older)}</button></div>
         ` : `<p class="muted">${esc(t.empty)}</p>`}</article>
         <div class="mapbox" style="margin-top:.75rem">
@@ -260,9 +310,6 @@ function draw() {
         return item ? `<button data-open="${esc(id)}"><span class="${tone(item)}">${esc(label(item, t))}</span> · ${esc(item.site)}</button>` : "";
       }).join("")}</div></div>`).join("")}
     </section>
-    <section class="split">
-      <div><h2>${esc(t.how)}</h2><p>${esc(t.howBody)}</p></div>
-    </section>
     <footer class="footer"><p>${esc(t.sisters)}: <a href="https://land.mkweli.tech">Land</a> · <a href="https://tenders.mkweli.tech">Tenders</a> · <a href="https://pfw.mkweli.tech">Funds</a> · <a href="https://mkweli.tech">mkweli.tech</a></p><p>${esc(t.updated)} 28 Oct 2026 · support@mkweli.tech</p></footer>
   </div>`;
   const q = document.getElementById("q");
@@ -277,6 +324,29 @@ document.getElementById("app").addEventListener("click", (e) => {
   if (el.dataset.filter) { state.filter = el.dataset.filter; state.frame = "fit"; draw(); return; }
   if (el.dataset.district) { state.district = el.dataset.district; state.frame = el.dataset.district === "all" ? "island" : "fit"; draw(); return; }
   if (el.dataset.choose) { choose(el.dataset.choose, true); return; }
+  if (el.dataset.copy) {
+    const item = records.find((r) => r.id === state.selected);
+    const draft = drafts[state.selected] || { name: "", body: "" };
+    if (!item || !draft.name.trim() || !draft.body.trim()) return;
+    const text = letter(item, draft);
+    const done = () => { copiedId = item.id; el.textContent = copy[state.lang].commentCopied; };
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(done).catch(done);
+    else done();
+    return;
+  }
+  if (el.dataset.print) {
+    const item = records.find((r) => r.id === state.selected);
+    const draft = drafts[state.selected] || { name: "", body: "" };
+    if (!item || !draft.name.trim() || !draft.body.trim()) return;
+    const text = letter(item, draft);
+    const page = window.open("", "_blank", "width=720,height=900");
+    if (!page) return;
+    page.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${esc(copy[state.lang].comment)}</title><style>body{font:18px Georgia,serif;margin:48px;white-space:pre-wrap;color:#1c1915}</style></head><body>${esc(text)}</body></html>`);
+    page.document.close();
+    page.focus();
+    page.print();
+    return;
+  }
   if (el.dataset.island) { state.frame = "island"; draw(); return; }
   if (el.dataset.open) { state.q = ""; state.filter = "all"; state.district = "all"; choose(el.dataset.open, true); return; }
   const list = shown();
@@ -285,12 +355,25 @@ document.getElementById("app").addEventListener("click", (e) => {
   if (el.dataset.newer && place >= 0 && place < list.length - 1) choose(list[place + 1].id, true);
 });
 document.getElementById("app").addEventListener("input", (e) => {
+  if (e.target.id === "cname" || e.target.id === "cbody") {
+    const draft = drafts[state.selected] || { name: "", body: "" };
+    if (e.target.id === "cname") draft.name = e.target.value;
+    else draft.body = e.target.value;
+    drafts[state.selected] = draft;
+    saveDrafts();
+    copiedId = "";
+    const on = Boolean(draft.name.trim() && draft.body.trim());
+    document.querySelectorAll("[data-copy],[data-print]").forEach((btn) => { btn.disabled = !on; });
+    const copyBtn = document.querySelector("[data-copy]");
+    if (copyBtn) copyBtn.textContent = copy[state.lang].commentCopy;
+    return;
+  }
   if (e.target.id !== "q") return;
   state.q = e.target.value;
   draw();
 });
 document.addEventListener("keydown", (e) => {
-  if (e.target.tagName === "INPUT") return;
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
   if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
   const list = shown();
   const i = list.findIndex((r) => r.id === state.selected);

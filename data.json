@@ -134,7 +134,8 @@
           "url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/12/NOTICE-FOR-PUBLIC-INSPECTION-OF-EIA-REPORT-Anahita-Beau-Champ-Smart-City-1.pdf"
         }
       ],
-      "note": "Comments were due by 10 January 2026."
+      "note": "Comments were due by 10 January 2026.",
+      "commentsDue": "2026-01-10"
     },
     {
       "id": "kapazur",
@@ -226,7 +227,8 @@
           "url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/11/PER-Ubora-Ventures-Ltd.pdf"
         }
       ],
-      "note": "Comments were due by 20 December 2025."
+      "note": "Comments were due by 20 December 2025.",
+      "commentsDue": "2025-12-20"
     },
     {
       "id": "gamma",
@@ -241,7 +243,8 @@
       "lon": 57.415,
       "sourceUrl": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/12/NOTICE-FOR-PUBLIC-INSPECTION-OF-EIA-REPORT-Gros-Cailloux.pdf",
       "sourceLabel": "Inspection notice, 18 December 2025",
-      "note": "Submitted 17 December 2025. Comment window closed on 10 January 2026."
+      "note": "Submitted 17 December 2025. Comment window closed on 10 January 2026.",
+      "commentsDue": "2026-01-10"
     },
     {
       "id": "mall-flacq",
