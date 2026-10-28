@@ -1,9 +1,7 @@
 # Mkweli EIA Watch
 
-Independent public register of Mauritius Environmental Impact Assessments (EIA), Preliminary Environmental Reports (PER) and decisions.
+Sourced reading desk for public EIA and PER notices in Mauritius.
 
-Live: https://eia.mkweli.tech
+https://eia.mkweli.tech
 
-Sourced only from official public notices and the Environment Act 2024. Not published is labelled as such.
-
-Not an official Ministry or EDB site.
+Not the Ministry of Environment. Every row links to the notice it came from. If a decision or a place was not published in the notices compiled here, the desk says so.
