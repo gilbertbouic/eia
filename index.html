@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mkweli EIA Watch — Mauritius environmental assessments</title>
+  <meta name="description" content="Sourced public register of Mauritius EIA and PER applications, public inspections and decisions under the Environment Act 2024.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a href="https://mkweli.tech" class="back">← mkweli.tech</a>
+      <h1>Mkweli EIA Watch</h1>
+      <p class="tag">Public inspections and decisions on EIA and PER applications. Every entry links to its source notice. Not published is labelled as such.</p>
+      <div class="lang">
+        <button id="lang-en" class="active">EN</button>
+        <button id="lang-fr">FR</button>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section id="open" class="card">
+      <h2 id="t-open">Open for public inspection</h2>
+      <div id="open-list"></div>
+    </section>
+    <section id="decisions" class="card">
+      <h2 id="t-dec">Recent decisions</h2>
+      <div id="dec-list"></div>
+    </section>
+    <section id="about" class="card">
+      <h2 id="t-about">How it works</h2>
+      <p id="t-about-text">Under the Environment Act 2024, EIA reports and decisions must be opened for public inspection. Notices appear on publicnotice.govmu.org and business.edbmauritius.org. This register collects those notices into one searchable place and links each item back to the original PDF or page.</p>
+    </section>
+    <section id="sources" class="card">
+      <h2 id="t-src">Sources</h2>
+      <ul id="src-list"></ul>
+    </section>
+  </main>
+  <footer class="wrap">
+    <p>A Mkweli product · <a href="https://mkweli.tech">mkweli.tech</a> · support@mkweli.tech</p>
+    <p id="updated"></p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

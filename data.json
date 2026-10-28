@@ -1,0 +1,88 @@
+{
+  "updated": "2026-10-28",
+  "open_inspections": [
+    {
+      "type": "EIA",
+      "description": "Proposed Serviced Plots within Parcel D Phase 2",
+      "proponent": "Anahita Beau Champ Limited",
+      "site": "Anahita Beau Champ Smart City, Beau Champ, Flacq",
+      "submitted": "17 December 2025",
+      "comments_deadline": "10 January 2026",
+      "status": "open",
+      "source_url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/12/NOTICE-FOR-PUBLIC-INSPECTION-OF-EIA-REPORT-Anahita-Beau-Champ-Smart-City-1.pdf",
+      "also_at": "http://business.edbmauritius.org"
+    },
+    {
+      "type": "EIA",
+      "description": "Proposed 7MWac Solar Photovoltaic Farm",
+      "proponent": "Gamma Materials Ltd",
+      "site": "Gros Cailloux, Black River",
+      "submitted": "17 December 2025",
+      "comments_deadline": "10 January 2026",
+      "status": "open",
+      "source_url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/12/NOTICE-FOR-PUBLIC-INSPECTION-OF-EIA-REPORT-Gros-Cailloux.pdf",
+      "also_at": "http://business.edbmauritius.org"
+    }
+  ],
+  "decisions": [
+    {
+      "type": "EIA",
+      "description": "Proposed Construction of a High Tech Solar PV Manufacturing Facility",
+      "proponent": "Insola Manufacturing (Mauritius) Ltd",
+      "site": "Riche Terre, Pamplemousses",
+      "decision": "Rejected",
+      "date": "02 February 2026",
+      "source_url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2026/02/EIA-Insola-Manufacturing-ltd-Ors.pdf"
+    },
+    {
+      "type": "EIA",
+      "description": "Proposed Installation of a Photovoltaic Farm of 25MW",
+      "proponent": "FMD Solar Co Ltd",
+      "site": "Amaury, Flacq",
+      "decision": "Approved",
+      "date": "02 February 2026",
+      "source_url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2026/02/EIA-Insola-Manufacturing-ltd-Ors.pdf"
+    },
+    {
+      "type": "EIA",
+      "description": "Proposed PDS Shiny Village Project",
+      "proponent": "Shiny Village Property Ltd",
+      "site": "La Gaulette, Black River",
+      "decision": "Approved",
+      "date": "03 February 2026",
+      "source_url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2026/02/EIA-Insola-Manufacturing-ltd-Ors.pdf"
+    },
+    {
+      "type": "PER",
+      "description": "Proposed Setup of a Scrap Metal Foundry",
+      "proponent": "Sam Brothers Scrap Metal Ltd",
+      "site": "Bois Cheri, Savanne",
+      "decision": "Rejected",
+      "date": "17 October 2025",
+      "source_url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/10/Rejection-of-PER-Application-.pdf"
+    },
+    {
+      "type": "EIA",
+      "description": "Proposed Construction of Mall de Flacq",
+      "proponent": "Alteo Agri Ltd",
+      "site": "Bonne Mere, Flacq",
+      "decision": "Approved",
+      "date": "12 November 2025",
+      "source_url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/11/NOTICE-DECISION-NOV-25.pdf"
+    },
+    {
+      "type": "EIA",
+      "description": "Proposed Morcellement C8 – Savannah Connected Countryside Smart City",
+      "proponent": "Savannah Smart City Ltd",
+      "site": "Gros Bois, Grand Port",
+      "decision": "Approved",
+      "date": "12 November 2025",
+      "source_url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/11/NOTICE-DECISION-NOV-25.pdf"
+    }
+  ],
+  "sources": [
+    {"title": "Public Notices (govmu.org)", "url": "https://publicnotice.govmu.org"},
+    {"title": "EDB Business Portal — EIA decisions", "url": "http://business.edbmauritius.org"},
+    {"title": "Ministry of Environment — EIA Division", "url": "https://environment.govmu.org/Pages/Environmental-Impact-Assessment.aspx"}
+  ]
+}

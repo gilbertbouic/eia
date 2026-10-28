@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://eia.mkweli.tech/sitemap.xml
