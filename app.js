@@ -175,7 +175,7 @@ function draw() {
   const cols = view.x1 - view.x0 + 1;
   const tiles = [];
   for (let y = view.y0; y <= view.y1; y++) {
-    for (let x = view.x0; x <= view.x1; x++) tiles.push(`<img alt="" draggable="false" src="https://basemaps.cartocdn.com/light_all/${view.z}/${x}/${y}@2x.png">`);
+    for (let x = view.x0; x <= view.x1; x++) tiles.push(`<img alt="" draggable="false" src="https://basemaps.cartocdn.com/rastertiles/voyager/${view.z}/${x}/${y}@2x.png?key=cb1_4wkh_1_f3fa2fd9e93a1aadbba14e4a">`);
   }
   const groups = new Map();
   list.forEach((item) => {
