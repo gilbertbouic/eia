@@ -21,60 +21,56 @@ const pairings = [
   },
   {
     id: "solar",
-    en: "Three solar files, three endings",
-    fr: "Trois dossiers solaires, trois issues",
-    bodyEn: "These are not the same project. A 25 MW farm at Amaury was licensed. A 7 MWac farm at Gros Cailloux has no decision in this file. A manufacturing plant at Riche Terre was refused.",
-    bodyFr: "Ce ne sont pas le même projet. Une ferme de 25 MW à Amaury a été autorisée. Une ferme de 7 MWac à Gros Cailloux n’a pas de décision dans ce dossier. Une usine à Riche Terre a été refusée.",
+    en: "Three solar notices",
+    fr: "Trois avis solaires",
+    bodyEn: "FMD Solar, a 25 MW farm at Amaury, was licensed on 2 February 2026. Gamma Materials, a 7 MWac farm at Gros Cailloux, closed its comment window on 10 January 2026. Insola Manufacturing, a plant at Riche Terre, was refused on 2 February 2026.",
+    bodyFr: "FMD Solar, ferme de 25 MW à Amaury, a été autorisée le 2 février 2026. Gamma Materials, ferme de 7 MWac à Gros Cailloux, a clos son délai de commentaires le 10 janvier 2026. Insola Manufacturing, usine à Riche Terre, a été refusée le 2 février 2026.",
     ids: ["fmd", "gamma", "insola"],
   },
 ];
 
 const copy = {
   en: {
+    brand: "Environmental impact assessments",
     kicker: "Mauritius · Environment Act 2024",
-    title: "The inspection desk",
-    lead: "An EIA is public twice: when the report is opened for comment, and when the Minister’s decision is posted. Those moments used to live in separate PDFs. This desk puts them on one table, each one linked back to the notice.",
+    title: "Licences, refusals and public inspections",
+    lead: "Environmental impact assessments and preliminary environmental reports, from the public inspection to the Minister’s licence or refusal. Every row links to the notice.",
     search: "Search a project, a company, a village",
     all: "All", eia: "EIA", per: "PER", approved: "Approved", rejected: "Rejected", closed: "Window closed",
     districts: "Districts", any: "Any district",
-    notices: "Notices on this desk", licensed: "Licences & exemptions", refused: "Refusals", waiting: "Decision not yet in the file",
+    notices: "Notices", licensed: "Licences and exemptions", refused: "Refusals", waiting: "Windows closed",
     source: "Read the notice", proponent: "Proponent", site: "Site", trail: "Before the decision",
-    empty: "Nothing in the file matches that.",
-    mapTitle: "Where the notices name a place",
-    mapNote: "Pins sit on the locality, not on a surveyed boundary. A notice stays off the map when this desk has no published point for it.",
-    unpinned: "This notice is not pinned. The list does not give a point.",
-    how: "How a comment actually gets in",
-    howBody: "While a report is open, comments go in writing to the EIA Desk, Department of Environment, Ken Lee Tower, corner of Barracks and St Georges Streets, Port Louis — or through the EDB business portal. The envelope is marked “EIA comments” or “PER comments”. The deadline is the one printed on that notice, not a standing date.",
-    limit: "What this is not",
-    limitBody: "Not the Ministry. Not a title search. Licence conditions are often only at the Resource Centre or on the EDB portal. Anything never published stays labelled as not published.",
+    empty: "No notice matches that search.",
+    mapTitle: "Places named in the notices",
+    mapNote: "Each pin marks the locality named in the notice. © OpenStreetMap © CARTO",
+    how: "Sending a comment",
+    howBody: "While a report is open, comments go in writing to the EIA Desk, Department of Environment, Ken Lee Tower, corner of Barracks and St Georges Streets, Port Louis, or through the EDB business portal. Mark the envelope “EIA comments” or “PER comments”. The deadline is the date printed on the notice.",
     sisters: "Also on Mkweli", updated: "Compiled", window: "Comment window closed", exempt: "Exempt undertaking",
     register: "The register", showing: "Showing", newer: "Newer", older: "Older", island: "Whole island",
-    across: "Read across",
-    acrossLead: "Notices that describe a similar project, and do not end the same way. The reason is in the PDF.",
-    span: "In the file", waitingLead: "Still waiting on a published decision", report: "Annual report",
+    across: "Same project, different decision",
+    acrossLead: "The notices use the same kind of project. The decision sits beside each one.",
+    span: "Notices from", waitingLead: "Comment window closed", report: "Annual report",
   },
   fr: {
+    brand: "Évaluations d’impact environnemental",
     kicker: "Maurice · Environment Act 2024",
-    title: "Le bureau d’inspection",
-    lead: "Une EIA est publique deux fois : à l’ouverture du rapport pour commentaires, puis à la publication de la décision du ministre. Ces moments vivaient dans des PDF séparés. Ce bureau les met sur une seule table, chacun renvoyé à son avis.",
+    title: "Licences, refus et inspections publiques",
+    lead: "Évaluations d’impact sur l’environnement et rapports environnementaux préliminaires, de l’inspection publique à la licence ou au refus du ministre. Chaque ligne renvoie à l’avis.",
     search: "Chercher un projet, une société, un village",
     all: "Tout", eia: "EIA", per: "PER", approved: "Approuvé", rejected: "Rejeté", closed: "Délai clos",
     districts: "Districts", any: "Tous les districts",
-    notices: "Avis sur ce bureau", licensed: "Licences et exemptions", refused: "Refus", waiting: "Décision absente du dossier",
+    notices: "Avis", licensed: "Licences et exemptions", refused: "Refus", waiting: "Délais clos",
     source: "Lire l’avis", proponent: "Pétitionnaire", site: "Site", trail: "Avant la décision",
-    empty: "Rien dans le dossier ne correspond.",
-    mapTitle: "Là où l’avis nomme un lieu",
-    mapNote: "Les épingles marquent la localité, pas une limite arpentée. Un avis reste hors carte quand ce bureau n’a pas de point publié.",
-    unpinned: "Cet avis n’est pas épinglé. La liste ne donne pas de point.",
-    how: "Comment un commentaire entre vraiment",
-    howBody: "Tant que le rapport est ouvert, les commentaires s’adressent par écrit à l’EIA Desk, Department of Environment, Ken Lee Tower, angle Barracks et St Georges, Port-Louis — ou via le portail EDB. L’enveloppe porte « EIA comments » ou « PER comments ». Le délai est celui imprimé sur l’avis.",
-    limit: "Ce que ce n’est pas",
-    limitBody: "Ni le ministère, ni une recherche de titre. Les conditions de licence sont souvent seulement au Resource Centre ou sur le portail EDB. Ce qui n’a pas été publié reste marqué non publié.",
+    empty: "Aucun avis ne correspond à cette recherche.",
+    mapTitle: "Lieux nommés dans les avis",
+    mapNote: "Chaque épingle marque la localité nommée dans l’avis. © OpenStreetMap © CARTO",
+    how: "Envoyer un commentaire",
+    howBody: "Tant que le rapport est ouvert, les commentaires s’adressent par écrit à l’EIA Desk, Department of Environment, Ken Lee Tower, angle Barracks et St Georges, Port-Louis, ou via le portail EDB. L’enveloppe porte « EIA comments » ou « PER comments ». Le délai est la date imprimée sur l’avis.",
     sisters: "Ailleurs sur Mkweli", updated: "Compilé", window: "Délai de commentaires clos", exempt: "Entreprise exemptée",
     register: "Le registre", showing: "Affichés", newer: "Plus récent", older: "Plus ancien", island: "Île entière",
-    across: "Lire en regard",
-    acrossLead: "Des avis qui décrivent un projet semblable, et qui ne finissent pas de la même façon. La raison est dans le PDF.",
-    span: "Dans le dossier", waitingLead: "Toujours sans décision publiée", report: "Rapport annuel",
+    across: "Même projet, décision différente",
+    acrossLead: "Les avis décrivent le même type de projet. La décision est à côté de chacun.",
+    span: "Avis de", waitingLead: "Délai de commentaires clos", report: "Rapport annuel",
   },
 };
 
@@ -205,7 +201,7 @@ function draw() {
   const focus = document.activeElement?.id === "q";
   app.innerHTML = `<div class="wrap">
     <header class="mast">
-      <div><p class="kicker">Mkweli</p><p class="brand">EIA Watch</p></div>
+      <div><p class="kicker">Mkweli</p><p class="brand">${esc(t.brand)}</p></div>
       <div style="display:flex;align-items:center;gap:.8rem">
         <p class="muted" style="display:none" id="kicker-wide">${esc(t.kicker)}</p>
         <div class="langs"><button data-lang="en" class="${state.lang === "en" ? "on" : ""}">EN</button><button data-lang="fr" class="${state.lang === "fr" ? "on" : ""}">FR</button></div>
@@ -252,7 +248,7 @@ function draw() {
           <div class="maphead"><h2>${esc(t.mapTitle)}</h2><button data-island="1" class="rust" style="min-height:2.75rem;text-decoration:underline">${esc(t.island)}</button></div>
           <div class="stage"><div class="grid" style="grid-template-columns:repeat(${cols},minmax(0,1fr))">${tiles.join("")}</div>${pins}</div>
           <div class="legend"><span><i class="swatch" style="background:var(--rust)"></i>${esc(t.approved)}</span><span><i class="swatch" style="background:var(--oxblood)"></i>${esc(t.rejected)}</span><span><i class="swatch" style="background:var(--gold)"></i>${esc(t.closed)}</span></div>
-          <p class="fine">${active && active.lat == null ? esc(t.unpinned) + " " : ""}${esc(t.mapNote)} © OpenStreetMap © CARTO</p>
+          <p class="fine">${esc(t.mapNote)}</p>
         </div>
       </aside>
     </div>
@@ -266,7 +262,6 @@ function draw() {
     </section>
     <section class="split">
       <div><h2>${esc(t.how)}</h2><p>${esc(t.howBody)}</p></div>
-      <div><h2>${esc(t.limit)}</h2><p>${esc(t.limitBody)}</p></div>
     </section>
     <footer class="footer"><p>${esc(t.sisters)}: <a href="https://land.mkweli.tech">Land</a> · <a href="https://tenders.mkweli.tech">Tenders</a> · <a href="https://pfw.mkweli.tech">Funds</a> · <a href="https://mkweli.tech">mkweli.tech</a></p><p>${esc(t.updated)} 28 Oct 2026 · support@mkweli.tech</p></footer>
   </div>`;

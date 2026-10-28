@@ -1,8 +1,8 @@
 {
   "updated": "2026-10-28",
   "context": {
-    "en": "In the year to June 2025 the Environmental Assessment Division reported 28 EIA licences and 10 PER approvals. This desk holds the notices compiled so far. It is not the full national file.",
-    "fr": "Sur l'année close en juin 2025, la division d'évaluation environnementale a indiqué 28 licences EIA et 10 approbations PER. Ce bureau ne rassemble que les avis compilés ici. Ce n'est pas le dossier national complet.",
+    "en": "In the year to June 2025 the Environmental Assessment Division reported 28 environmental impact assessment licences and 10 preliminary environmental report approvals.",
+    "fr": "Sur l’année close en juin 2025, la division d’évaluation environnementale a indiqué 28 licences d’évaluation d’impact et 10 approbations de rapports environnementaux préliminaires.",
     "source": "https://environment.govmu.org/Lists/AnnualReports/Attachments/10/Annual%20Report%20on%20Performance%20FY%202024-25.pdf"
   },
   "records": [
@@ -60,8 +60,7 @@
       "lat": -20.388,
       "lon": 57.718,
       "sourceUrl": "http://business.edbmauritius.org",
-      "sourceLabel": "EDB decisions list",
-      "note": "Listed as an exempt undertaking, not an EIA licence."
+      "sourceLabel": "EDB decisions list"
     },
     {
       "id": "avalon-q",
@@ -113,8 +112,7 @@
       "district": "Not published",
       "date": "2026-06-30",
       "sourceUrl": "http://business.edbmauritius.org",
-      "sourceLabel": "EDB decisions list",
-      "note": "The EDB list names the site as The Mount and does not print the district."
+      "sourceLabel": "EDB decisions list"
     },
     {
       "id": "anahita-d2",
@@ -136,7 +134,7 @@
           "url": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/12/NOTICE-FOR-PUBLIC-INSPECTION-OF-EIA-REPORT-Anahita-Beau-Champ-Smart-City-1.pdf"
         }
       ],
-      "note": "Comments were due by 10 January 2026. The licence date above is the one printed on the EDB list."
+      "note": "Comments were due by 10 January 2026."
     },
     {
       "id": "kapazur",
@@ -206,8 +204,7 @@
       "lat": -20.073,
       "lon": 57.512,
       "sourceUrl": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2026/02/EIA-Insola-Manufacturing-ltd-Ors.pdf",
-      "sourceLabel": "Public notice, 5 February 2026",
-      "note": "The grounds of rejection are on the notice and on the EDB portal, not restated here."
+      "sourceLabel": "Public notice, 5 February 2026"
     },
     {
       "id": "ubora",
@@ -244,7 +241,7 @@
       "lon": 57.415,
       "sourceUrl": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/12/NOTICE-FOR-PUBLIC-INSPECTION-OF-EIA-REPORT-Gros-Cailloux.pdf",
       "sourceLabel": "Inspection notice, 18 December 2025",
-      "note": "Submitted 17 December 2025. The comment window closed on 10 January 2026. A later licence or refusal is not in the notices compiled here."
+      "note": "Submitted 17 December 2025. Comment window closed on 10 January 2026."
     },
     {
       "id": "mall-flacq",
@@ -314,8 +311,7 @@
       "lat": -20.19,
       "lon": 57.718,
       "sourceUrl": "https://publicnotice.govmu.org/publicnotice/wp-content/uploads/2025/10/Rejection-of-PER-Application-.pdf",
-      "sourceLabel": "Public notice, October 2025",
-      "note": "The notice prints Flacq as the site. A street address is not in the extracted table."
+      "sourceLabel": "Public notice, October 2025"
     },
     {
       "id": "mare-longue-farm",
