@@ -174,3 +174,12 @@ html:not([lang="fr"]) .site-footer [lang="fr"] { display: none; }
 .mkweli-family-center .mkweli-family-nav { justify-content: center; }
 .mkweli-family-center .mkweli-quote { margin-inline: auto; }
 .mkweli-family-bleed { width: auto; margin-left: 0; margin-right: 0; }
+@media (max-width: 480px) {
+  .mkweli-family {
+    width: calc(100% - 1.25rem);
+    font-size: 0.74rem;
+  }
+  .mkweli-family-nav { gap: 0.35rem 0.55rem; }
+  .mkweli-quote { max-width: 100%; overflow-wrap: anywhere; }
+}
+
