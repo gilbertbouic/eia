@@ -310,7 +310,6 @@ function draw() {
         return item ? `<button data-open="${esc(id)}"><span class="${tone(item)}">${esc(label(item, t))}</span> · ${esc(item.site)}</button>` : "";
       }).join("")}</div></div>`).join("")}
     </section>
-    <footer class="footer"><p>${esc(t.sisters)}: <a href="https://land.mkweli.tech">Land</a> · <a href="https://tenders.mkweli.tech">Tenders</a> · <a href="https://pfw.mkweli.tech">Funds</a> · <a href="https://mkweli.tech">mkweli.tech</a></p><p>${esc(t.updated)} 28 Oct 2026 · support@mkweli.tech</p></footer>
   </div>`;
   const q = document.getElementById("q");
   if (focus && q) { q.focus(); q.setSelectionRange(state.q.length, state.q.length); }
