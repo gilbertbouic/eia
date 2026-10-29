@@ -183,3 +183,36 @@ html:not([lang="fr"]) .site-footer [lang="fr"] { display: none; }
   .mkweli-quote { max-width: 100%; overflow-wrap: anywhere; }
 }
 
+/* Mkweli family footer: 3 rows (site line, family strip, meta). Overrides the older strip rules above. */
+.mkweli-family.mkf {
+  width: min(100% - 2rem, 1120px);
+  margin: 1.5rem auto 0;
+  padding: 1.25rem 0 1.5rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+  display: grid;
+  gap: 0.7rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: inherit;
+}
+.mkf p { margin: 0; color: inherit; font-size: inherit; }
+.mkf .mkf-site { max-width: 52rem; opacity: 0.9; }
+.mkf .mkweli-family-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1.1rem; font-size: 0.875rem; }
+.mkf .mkweli-family-nav > * { display: inline-block; padding: 0.35rem 0; }
+.mkf a { color: inherit; font-size: inherit; text-underline-offset: 3px; }
+.mkf .mkf-meta > *, .mkf .mkweli-family-nav > * { font-size: inherit; }
+.mkf a:hover { opacity: 0.75; }
+.mkf [aria-current="page"] { font-weight: 650; text-decoration: none; }
+.mkf .mkf-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.2rem 0.5rem; opacity: 0.9; font-variant-numeric: tabular-nums; }
+.mkf .mkf-meta .dot { opacity: 0.6; }
+.mkf .visit-counter { margin: 0; font-size: inherit; opacity: 1; display: inline-flex; align-items: center; }
+.mkf .visit-counter .dot { margin-right: 0.5rem; }
+.mkf .visit-count { margin-left: 0.3em; }
+.mkf .visit-counter[hidden] { display: none; }
+.mkf.mkweli-family-center { text-align: center; justify-items: center; }
+.mkf.mkweli-family-center .mkweli-family-nav, .mkf.mkweli-family-center .mkf-meta { justify-content: center; }
+.mkf.mkweli-family-bleed { width: auto; margin-left: 0; margin-right: 0; }
+@media (max-width: 480px) {
+  .mkweli-family.mkf { width: calc(100% - 1.5rem); padding: 1rem 0 1.25rem; font-size: 0.8125rem; }
+  .mkf .mkweli-family-nav { gap: 0 0.9rem; }
+}

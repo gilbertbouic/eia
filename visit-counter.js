@@ -58,3 +58,26 @@
   if (document.readyState === "complete") schedule();
   else window.addEventListener("load", schedule);
 })();
+
+/* Mkweli family footer labels: pages that switch language without reloading mark labels with data-fr. */
+(function () {
+  "use strict";
+  var nodes = document.querySelectorAll(".mkf [data-fr]");
+  if (!nodes.length) return;
+  function paint() {
+    var fr = (document.documentElement.lang || "en").slice(0, 2) === "fr";
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      if (!n.hasAttribute("data-en")) n.setAttribute("data-en", n.textContent);
+      n.textContent = fr ? n.getAttribute("data-fr") : n.getAttribute("data-en");
+      if (n.hasAttribute("data-fr-href")) {
+        if (!n.hasAttribute("data-en-href")) n.setAttribute("data-en-href", n.getAttribute("href"));
+        n.setAttribute("href", fr ? n.getAttribute("data-fr-href") : n.getAttribute("data-en-href"));
+      }
+    }
+    var nav = document.querySelector(".mkf .mkweli-family-nav");
+    if (nav) nav.setAttribute("aria-label", fr ? "Outils Mkweli" : "Mkweli tools");
+  }
+  paint();
+  if (window.MutationObserver) new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+})();
