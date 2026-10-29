@@ -204,7 +204,7 @@ html:not([lang="fr"]) .site-footer [lang="fr"] { display: none; }
 .mkf a:hover { opacity: 0.75; }
 .mkf [aria-current="page"] { font-weight: 650; text-decoration: none; }
 .mkf .mkf-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.2rem 0.5rem; opacity: 0.9; font-variant-numeric: tabular-nums; }
-.mkf .mkf-meta .dot { opacity: 0.6; }
+.mkf .mkf-meta .dot { opacity: 0.6; display: inline; width: auto; height: auto; background: none; border-radius: 0; animation: none; }
 .mkf .visit-counter { margin: 0; font-size: inherit; opacity: 1; display: inline-flex; align-items: center; }
 .mkf .visit-counter .dot { margin-right: 0.5rem; }
 .mkf .visit-count { margin-left: 0.3em; }
