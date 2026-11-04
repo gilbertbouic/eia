@@ -1,11 +1,39 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-11-04",
   "context": {
     "en": "In the year to June 2025 the Environmental Assessment Division reported 28 environmental impact assessment licences and 10 preliminary environmental report approvals.",
     "fr": "Sur l’année close en juin 2025, la division d’évaluation environnementale a indiqué 28 licences d’évaluation d’impact et 10 approbations de rapports environnementaux préliminaires.",
     "source": "https://environment.govmu.org/Lists/AnnualReports/Attachments/10/Annual%20Report%20on%20Performance%20FY%202024-25.pdf"
   },
   "records": [
+    {
+      "id": "helvea-moka",
+      "kind": "EIA",
+      "status": "approved",
+      "title": "Helvea residential morcellement within Moka Smart City",
+      "proponent": "Moka City Limited",
+      "site": "Moka Smart City",
+      "district": "Moka",
+      "date": "2026-11-03",
+      "lat": -20.219,
+      "lon": 57.496,
+      "sourceUrl": "https://business.edbmauritius.org",
+      "sourceLabel": "EDB decisions list"
+    },
+    {
+      "id": "alteo-clinic",
+      "kind": "EIA",
+      "status": "approved",
+      "title": "Clinic",
+      "proponent": "Alteo Agri Ltd",
+      "site": "Bonne Mère",
+      "district": "Flacq",
+      "date": "2026-11-03",
+      "lat": -20.19,
+      "lon": 57.718,
+      "sourceUrl": "https://business.edbmauritius.org",
+      "sourceLabel": "EDB decisions list"
+    },
     {
       "id": "exclusive-albion",
       "kind": "PER",
