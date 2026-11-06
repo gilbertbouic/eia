@@ -10,22 +10,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Outfit:wght@380;500;620&display=swap">
   <link rel="stylesheet" href="styles.css">
+<style>
+/* Slim Meridian-style family footer */
+.mkweli-family.mkf,.foot .mkweli-family.mkf,footer .mkweli-family.mkf{
+  display:flex;flex-direction:column;gap:4px;
+  padding:4px 16px!important;margin:0!important;
+  font-size:11.5px!important;line-height:1.35!important;
+  border-top:1px solid rgba(255,255,255,.14);
+}
+.mkf .mkweli-family-nav{display:flex;flex-wrap:wrap;align-items:center;gap:0 .75rem!important;font-size:inherit!important}
+.mkf .mkweli-family-nav>*{display:inline!important;padding:0!important}
+.mkf .mkf-meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.35rem .75rem;margin:0!important;width:100%;font-size:inherit!important;font-variant-numeric:tabular-nums}
+.mkf .mkf-meta .mkf-left,.mkf .mkf-left{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.2rem .45rem;min-width:0}
+.mkf .dot{opacity:.6;margin:0}
+.mkf .visit-counter[hidden]{display:none}
+footer.site-footer,footer.foot{padding:6px 0 8px!important;font-size:11.5px!important;line-height:1.35!important}
+footer.site-footer a,footer.foot a{min-height:0!important}
+@media (max-width:899px){.mkweli-family.mkf{padding:4px 12px!important;font-size:11px!important}}
+</style>
 </head>
 <body>
   <div id="app"></div>
   <footer class="site-footer">
-    <p class="compiled" lang="en">Compiled 28 Oct 2026</p>
-    <p class="compiled" lang="fr">Compilé 28 oct. 2026</p>
-  
 <div class="mkweli-family mkf">
-  <p class="mkf-site" data-fr="Registre indépendant Mkweli des dossiers publics EIE et PER à Maurice — non affilié au gouvernement mauricien et non approuvé par lui.">Independent Mkweli register of public EIA and PER records in Mauritius — not affiliated with or endorsed by the Government of Mauritius.</p>
+  <p class="mkf-disc" style="margin:0;opacity:.9">Compiled 28 Oct 2026 Compilé 28 oct. 2026 Independent Mkweli register of public EIA and PER records in Mauritius — not affiliated with or endorsed by the Government of Mauritius. © 2026 Mkweli · support@mkweli.tech · Privacy · Visits</p>
   <nav class="mkweli-family-nav" aria-label="Mkweli tools">
     <a href="https://mkweli.tech/" data-fr="Portail Mkweli">Mkweli Hub</a>
     <a href="https://mkweli.tech/#mauritius" data-fr="Outils Maurice">Mauritius tools</a>
     <a href="https://mkweli.tech/#south-africa" data-fr="Outils Afrique du Sud">South Africa tools</a>
     <a href="https://mkweli.tech/#mauritius" data-fr="Tous les outils">All tools</a>
   </nav>
-  <p class="mkf-meta"><span>© 2026 Mkweli</span><span class="dot" aria-hidden="true">·</span><a href="mailto:support@mkweli.tech">support@mkweli.tech</a><span class="dot" aria-hidden="true">·</span><a href="https://mkweli.tech/privacy.html" data-fr="Confidentialité" data-fr-href="https://mkweli.tech/confidentialite.html">Privacy</a><span class="visit-counter" id="visit-counter" data-counter="mkweli-tech/eia" data-label-en="Visits " data-label-fr="Visites " data-label-pt="Visitas " hidden><span class="dot" aria-hidden="true">·</span> <span class="visit-label">Visits </span><span class="visit-count"></span></span></p>
+  <p class="mkf-meta"><span class="mkf-left"><span>© 2026 Mkweli</span><span class="dot" aria-hidden="true">·</span><a href="mailto:support@mkweli.tech">support@mkweli.tech</a><span class="dot" aria-hidden="true">·</span><a href="https://mkweli.tech/privacy.html" data-fr="Confidentialité" data-fr-href="https://mkweli.tech/confidentialite.html">Privacy</a><span class="visit-counter" id="visit-counter" data-counter="mkweli-tech/eia" data-label-en="Visits " data-label-fr="Visites " data-label-pt="Visitas " hidden><span class="dot" aria-hidden="true">·</span> <span class="visit-label">Visits </span><span class="visit-count"></span></span></span></p>
 </div>
 </footer>
   <script src="app.js" type="module"></script>

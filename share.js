@@ -1,22 +1,23 @@
 /* Mkweli share icons: WhatsApp, X, LinkedIn, Copy link.
-   Places small 26×26 icon-only buttons in the footer meta row (.mkf-meta).
+   Injects 22px icon-only buttons into the footer meta row (.mkf-meta / .ft-meta).
    Labels follow <html lang> / data-lang (en / fr). */
 (function () {
   "use strict";
   if (document.getElementById("mk-share")) return;
 
   var CSS =
-    ".mk-share{display:inline-flex;align-items:center;gap:6px;margin:0;padding:0;border:0;background:none}" +
-    ".mkf-meta:has(.mk-share){display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.45rem 1rem;width:100%}" +
-    ".mk-share .mk-sh{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;padding:0;border-radius:6px;border:0;cursor:pointer;text-decoration:none!important;box-sizing:border-box;flex:0 0 auto;line-height:0}" +
-    ".mk-share .mk-sh svg{width:15px;height:15px;display:block}" +
+    ".mk-share{display:inline-flex;align-items:center;gap:4px;margin:0 0 0 auto;padding:0;border:0;background:none;flex:0 0 auto}" +
+    ".mkf-meta:has(.mk-share),.ft-meta:has(.mk-share),.ft-row:has(.mk-share){display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.35rem .75rem;width:100%}" +
+    ".mk-share .mk-sh{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;padding:0;border-radius:5px;border:0;cursor:pointer;text-decoration:none!important;box-sizing:border-box;flex:0 0 auto;line-height:0}" +
+    ".mk-share .mk-sh svg{width:13px;height:13px;display:block}" +
     ".mk-share .mk-sh--wa{background:#128C4B;color:#fff}" +
     ".mk-share .mk-sh--x{background:#111;color:#fff;border:1px solid rgba(255,255,255,.18)}" +
     ".mk-share .mk-sh--li{background:#0A66C2;color:#fff}" +
     ".mk-share .mk-sh--copy{background:transparent;color:inherit;border:1px solid rgba(232,232,232,.28)}" +
     ".mk-share .mk-sh:hover{opacity:.88}" +
     ".mk-share--light .mk-sh--x{background:#111;border-color:rgba(0,0,0,.18)}" +
-    ".mk-share--light .mk-sh--copy{border-color:color-mix(in srgb,currentColor 30%,transparent)}.mk-share--solo{display:flex;justify-content:flex-end;width:100%;max-width:1120px;margin:10px auto 4px;padding:0 18px;box-sizing:border-box}";
+    ".mk-share--light .mk-sh--copy{border-color:color-mix(in srgb,currentColor 30%,transparent)}" +
+    ".mk-share--solo{display:flex;justify-content:flex-end;width:100%;max-width:1120px;margin:6px auto 2px;padding:0 16px;box-sizing:border-box}";
 
   var T = {
     en: { wa: "WhatsApp", x: "X", li: "LinkedIn", c: "Copy link", d: "Link copied" },
@@ -66,7 +67,7 @@
       '<a class="mk-sh mk-sh--li" target="_blank" rel="noopener">' + SVG.li + "</a>" +
       '<button type="button" class="mk-sh mk-sh--copy">' + SVG.cp + "</button>";
 
-    var meta = document.querySelector(".mkf-meta");
+    var meta = document.querySelector("footer.note .ft-meta, footer.note .ft-row, #sitefoot .ft-meta, .mkf-meta, .ft-meta, .ft-row");
     var family = document.querySelector(".mkweli-family");
     var foot = document.querySelector("body > footer") || document.querySelector("footer") ||
                document.querySelector(".mkweli-family, .foot, .site-footer");
@@ -83,7 +84,7 @@
       document.body.appendChild(row);
     }
 
-    if (isLightBg(meta || family || foot || document.body)) row.classList.add("mk-share--light");
+    if (isLightBg(row.parentElement || document.body)) row.classList.add("mk-share--light");
 
     var wa = row.querySelector(".mk-sh--wa"), x = row.querySelector(".mk-sh--x"),
         li = row.querySelector(".mk-sh--li"), cp = row.querySelector(".mk-sh--copy"), busy = false;
