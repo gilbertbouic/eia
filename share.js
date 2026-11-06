@@ -16,7 +16,7 @@
     ".mk-share .mk-sh--copy{background:transparent;color:inherit;border:1px solid rgba(232,232,232,.28)}" +
     ".mk-share .mk-sh:hover{opacity:.88}" +
     ".mk-share--light .mk-sh--x{background:#111;border-color:rgba(0,0,0,.18)}" +
-    ".mk-share--light .mk-sh--copy{border-color:color-mix(in srgb,currentColor 30%,transparent)}";
+    ".mk-share--light .mk-sh--copy{border-color:color-mix(in srgb,currentColor 30%,transparent)}.mk-share--solo{display:flex;justify-content:flex-end;width:100%;max-width:1120px;margin:10px auto 4px;padding:0 18px;box-sizing:border-box}";
 
   var T = {
     en: { wa: "WhatsApp", x: "X", li: "LinkedIn", c: "Copy link", d: "Link copied" },
@@ -73,10 +73,13 @@
     if (meta) {
       meta.appendChild(row);
     } else if (family) {
+      row.classList.add("mk-share--solo");
       family.appendChild(row);
     } else if (foot) {
+      row.classList.add("mk-share--solo");
       foot.appendChild(row);
     } else {
+      row.classList.add("mk-share--solo");
       document.body.appendChild(row);
     }
 
