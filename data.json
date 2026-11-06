@@ -1,11 +1,25 @@
 {
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "context": {
     "en": "In the year to June 2025 the Environmental Assessment Division reported 28 environmental impact assessment licences and 10 preliminary environmental report approvals.",
     "fr": "Sur l’année close en juin 2025, la division d’évaluation environnementale a indiqué 28 licences d’évaluation d’impact et 10 approbations de rapports environnementaux préliminaires.",
     "source": "https://environment.govmu.org/Lists/AnnualReports/Attachments/10/Annual%20Report%20on%20Performance%20FY%202024-25.pdf"
   },
   "records": [
+    {
+      "id": "coastal-le-morne",
+      "kind": "Exempt",
+      "status": "approved",
+      "title": "Coastal protection, landscaping and infrastructural works",
+      "proponent": "Ministry of Environment, Solid Waste Management and Climate Change",
+      "site": "Le Morne",
+      "district": "Black River",
+      "date": "2026-11-05",
+      "lat": -20.458,
+      "lon": 57.318,
+      "sourceUrl": "http://business.edbmauritius.org",
+      "sourceLabel": "EDB decisions list"
+    },
     {
       "id": "helvea-moka",
       "kind": "EIA",
