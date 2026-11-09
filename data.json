@@ -1,11 +1,25 @@
 {
-  "updated": "2026-11-06",
+  "updated": "2026-11-09",
   "context": {
     "en": "In the year to June 2025 the Environmental Assessment Division reported 28 environmental impact assessment licences and 10 preliminary environmental report approvals.",
     "fr": "Sur l’année close en juin 2025, la division d’évaluation environnementale a indiqué 28 licences d’évaluation d’impact et 10 approbations de rapports environnementaux préliminaires.",
     "source": "https://environment.govmu.org/Lists/AnnualReports/Attachments/10/Annual%20Report%20on%20Performance%20FY%202024-25.pdf"
   },
   "records": [
+    {
+      "id": "fillin-tank-farm",
+      "kind": "EIA",
+      "status": "approved",
+      "title": "New storage tank farm and pipeline",
+      "proponent": "Fillin Petroleum Ltd",
+      "site": "Quay Road, Port Louis",
+      "district": "Port Louis",
+      "date": "2026-11-06",
+      "lat": -20.158,
+      "lon": 57.493,
+      "sourceUrl": "https://business.edbmauritius.org",
+      "sourceLabel": "EDB decisions list"
+    },
     {
       "id": "coastal-le-morne",
       "kind": "Exempt",
