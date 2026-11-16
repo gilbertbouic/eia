@@ -1,11 +1,67 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-16",
   "context": {
     "en": "In the year to June 2025 the Environmental Assessment Division reported 28 environmental impact assessment licences and 10 preliminary environmental report approvals.",
     "fr": "Sur l’année close en juin 2025, la division d’évaluation environnementale a indiqué 28 licences d’évaluation d’impact et 10 approbations de rapports environnementaux préliminaires.",
     "source": "https://environment.govmu.org/Lists/AnnualReports/Attachments/10/Annual%20Report%20on%20Performance%20FY%202024-25.pdf"
   },
   "records": [
+    {
+      "id": "anahita-beau-champ",
+      "kind": "EIA",
+      "status": "approved",
+      "title": "Villas, townhouses and apartments within Anahita Beau Champ Smart City",
+      "proponent": "Anahita Beau Champ Limited",
+      "site": "Beau Champ",
+      "district": "Flacq",
+      "date": "2026-11-12",
+      "lat": -20.2,
+      "lon": 57.77,
+      "sourceUrl": "https://business.edbmauritius.org",
+      "sourceLabel": "EDB decisions list"
+    },
+    {
+      "id": "coastal-vgp-debarcadere-church",
+      "kind": "Exempt",
+      "status": "approved",
+      "title": "Coastal protection, landscaping and infrastructural works",
+      "proponent": "Ministry of Environment, Solid Waste Management and Climate Change",
+      "site": "Débarcadère behind church, Vieux Grand Port",
+      "district": "Grand Port",
+      "date": "2026-11-12",
+      "lat": -20.388,
+      "lon": 57.719,
+      "sourceUrl": "https://business.edbmauritius.org",
+      "sourceLabel": "EDB decisions list"
+    },
+    {
+      "id": "coastal-riviere-des-creoles",
+      "kind": "Exempt",
+      "status": "approved",
+      "title": "Coastal protection, landscaping and infrastructural works",
+      "proponent": "Ministry of Environment, Solid Waste Management and Climate Change",
+      "site": "Rivière des Créoles, Sites 1 & 2",
+      "district": "Grand Port",
+      "date": "2026-11-12",
+      "lat": -20.425,
+      "lon": 57.735,
+      "sourceUrl": "https://business.edbmauritius.org",
+      "sourceLabel": "EDB decisions list"
+    },
+    {
+      "id": "coastal-vgp-public-beach",
+      "kind": "Exempt",
+      "status": "approved",
+      "title": "Coastal protection, landscaping and infrastructural works",
+      "proponent": "Ministry of Environment, Solid Waste Management and Climate Change",
+      "site": "Public beach near football ground, Vieux Grand Port",
+      "district": "Grand Port",
+      "date": "2026-11-12",
+      "lat": -20.386,
+      "lon": 57.716,
+      "sourceUrl": "https://business.edbmauritius.org",
+      "sourceLabel": "EDB decisions list"
+    },
     {
       "id": "fillin-tank-farm",
       "kind": "EIA",
