@@ -1,7 +1,10 @@
 /* Tiny visit counter for the footer.
    Service: Abacus (https://abacus.jasoncameron.dev), free, no account, no cookies.
    The counter key comes from data-counter on #visit-counter (for example "mkweli-tech/aml").
-   Counts one visit per browser tab session. Stays hidden if the service does not answer in 4 seconds.
+   Counts one visit per browser tab session. Waits up to 10 seconds and, if that request
+   gets no response, retries once with a read-only get. A successful count is saved in
+   localStorage; if the service still does not answer, the last cached number is shown.
+   Stays hidden only if there is no cached count.
    Privacy notice: https://mkweli.tech/privacy.html */
 (function () {
   "use strict";
@@ -12,27 +15,86 @@
   if (!key || !/^[a-z0-9-]+\/[a-z0-9-]+$/.test(key)) return;
   var BASE = "https://abacus.jasoncameron.dev";
   var SEEN = "mkweliVisitCounted:" + key;
+  var CACHE = "mkweliVisitCount:" + key;
+  var TIMEOUT = 10000;
 
-  function run() {
-    var seen = false;
-    try { seen = sessionStorage.getItem(SEEN) === "1"; } catch (e) {}
+  function readCache() {
+    try {
+      var n = Number(localStorage.getItem(CACHE));
+      if (n && isFinite(n) && n >= 1) return n;
+    } catch (e) {}
+    return 0;
+  }
+
+  function writeCache(n) {
+    try { localStorage.setItem(CACHE, String(n)); } catch (e) {}
+  }
+
+  function rememberSeen() {
+    try { sessionStorage.setItem(SEEN, "1"); } catch (e) {}
+  }
+
+  function parseCount(data) {
+    var n = data && Number(data.value);
+    if (!n || !isFinite(n) || n < 1) return 0;
+    return n;
+  }
+
+  function showCachedOrHide() {
+    var n = readCache();
+    if (n) show(n);
+  }
+
+  /* done(count, gotResponse). gotResponse is true if the server answered (even with an error). */
+  function fetchCount(path, done) {
     var ctrl = window.AbortController ? new AbortController() : null;
-    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 4000);
-    fetch(BASE + (seen ? "/get/" : "/hit/") + key, {
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); else finish(0); }, TIMEOUT);
+    var gotResponse = false;
+    var finished = false;
+    function finish(n) {
+      if (finished) return;
+      finished = true;
+      clearTimeout(timer);
+      done(n, gotResponse);
+    }
+    fetch(BASE + path + key, {
       cache: "no-store",
       credentials: "omit",
       referrerPolicy: "no-referrer",
       signal: ctrl ? ctrl.signal : undefined
     })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) {
-        clearTimeout(timer);
-        var n = data && Number(data.value);
-        if (!n || !isFinite(n) || n < 1) return;
-        try { sessionStorage.setItem(SEEN, "1"); } catch (e) {}
-        show(n);
+      .then(function (r) {
+        gotResponse = true;
+        return r.ok ? r.json() : null;
       })
-      .catch(function () { clearTimeout(timer); });
+      .then(function (data) { finish(parseCount(data)); })
+      .catch(function () { finish(0); });
+  }
+
+  function applyCount(n) {
+    rememberSeen();
+    writeCache(n);
+    show(n);
+  }
+
+  function run() {
+    var seen = false;
+    try { seen = sessionStorage.getItem(SEEN) === "1"; } catch (e) {}
+    fetchCount(seen ? "/get/" : "/hit/", function (n, gotResponse) {
+      if (n) {
+        applyCount(n);
+        return;
+      }
+      /* Retry only when the first request failed before a response, and only with GET. */
+      if (!gotResponse) {
+        fetchCount("/get/", function (retryN) {
+          if (retryN) applyCount(retryN);
+          else showCachedOrHide();
+        });
+        return;
+      }
+      showCachedOrHide();
+    });
   }
   /* Pages that switch language without reloading can give labels as data-label-en, data-label-fr, ... */
   function show(n) {
